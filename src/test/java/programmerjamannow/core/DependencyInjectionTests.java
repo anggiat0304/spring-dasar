@@ -6,7 +6,10 @@ package programmerjamannow.core;
 
 import lombok.var;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import programmerjamannow.core.data.Bar;
 import programmerjamannow.core.data.Foo;
 import programmerjamannow.core.data.FooBar;
@@ -16,6 +19,24 @@ import programmerjamannow.core.data.FooBar;
  * @version $Id: DepedencyInjectionTests.java, v 0.1 2022‐10‐28 20.22 anggiat.pangaribuan Exp $$
  */
 public class DependencyInjectionTests {
+
+        private ApplicationContext context;
+
+        @BeforeEach
+        void setUp(){
+            context = new AnnotationConfigApplicationContext(DependencyInjectionConfiguration.class);
+        }
+
+        @Test
+        void testDI(){
+            Foo foo = context.getBean("fooSecond",Foo.class);
+            Bar bar = context.getBean(Bar.class);
+            FooBar fooBar = context.getBean(FooBar.class);
+
+            Assertions.assertSame(foo, fooBar.getFoo());
+            Assertions.assertSame(bar , fooBar.getBar());
+        }
+
         @Test
         void testNoDI(){
             var foo = new Foo();
