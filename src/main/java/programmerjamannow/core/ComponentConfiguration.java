@@ -6,6 +6,8 @@ package programmerjamannow.core;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import programmerjamannow.core.data.MultiFoo;
 import programmerjamannow.core.service.ProductService;
 
 /**
@@ -13,10 +15,12 @@ import programmerjamannow.core.service.ProductService;
  * @version $Id: ComponentConfiguration.java, v 0.1 2022‐10‐29 11.15 anggiat.pangaribuan Exp $$
  */
 @Configuration
-@ComponentScan(basePackages={
+@ComponentScan(basePackages = {
         "programmerjamannow.core.service",
-        "programmerjamannow.core.repository"
+        "programmerjamannow.core.repository",
+        "programmerjamannow.core.configuration"
 })
+@Import(MultiFoo.class)
 public class ComponentConfiguration {
 
 }

@@ -13,8 +13,10 @@ import programmerjamannow.core.repository.ProductRepository;
  * @author anggiat.pangaribuan (anggiat.pangaribuan@dana.id)
  * @version $Id: ProductService.java, v 0.1 2022‐10‐29 11.14 anggiat.pangaribuan Exp $$
  */
-@Component public class ProductService {
-    @Getter private ProductRepository productRepository;
+@Component
+public class ProductService {
+    @Getter
+    private ProductRepository productRepository;
 
     @Autowired
     public ProductService(ProductRepository productRepository) {

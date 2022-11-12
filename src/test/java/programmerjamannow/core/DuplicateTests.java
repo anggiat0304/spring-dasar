@@ -17,21 +17,22 @@ import programmerjamannow.core.data.Foo;
  */
 public class DuplicateTests {
 
-    @Test void testDuplicateTests() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(
-                DuplicateConfiguration.class);
-
-        Assertions.assertThrows(NoUniqueBeanDefinitionException.class ,()->{
-           Foo foo = context.getBean(Foo.class);
-        });
-    }
+//    @Test
+//    void testDuplicate() {
+//        ApplicationContext context = new AnnotationConfigApplicationContext(
+//                DuplicateConfiguration.class);
+//
+//        Assertions.assertThrows(NoUniqueBeanDefinitionException.class, () -> {
+//            Foo foo = context.getBean(Foo.class);
+//        });
+//    }
 
     @Test
-    void getBean(){
+    void getBean() {
         ApplicationContext context = new AnnotationConfigApplicationContext(DuplicateConfiguration.class);
         Foo foo = context.getBean(Foo.class);
-        Foo foo1 = context.getBean("foo1",Foo.class);
-        Foo foo2 = context.getBean("foo2",Foo.class);
+        Foo foo1 = context.getBean("foo1", Foo.class);
+        Foo foo2 = context.getBean("foo2", Foo.class);
         Assertions.assertSame(foo, foo1);
         Assertions.assertNotSame(foo1, foo2);
     }

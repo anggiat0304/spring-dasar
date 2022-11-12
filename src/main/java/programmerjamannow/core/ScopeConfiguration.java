@@ -17,14 +17,19 @@ import programmerjamannow.core.scope.DoubletonScope;
  * @author anggiat.pangaribuan (anggiat.pangaribuan@dana.id)
  * @version $Id: ScopeConfiguration.java, v 0.1 2022‐10‐28 23.39 anggiat.pangaribuan Exp $$
  */
-@Configuration @Slf4j public class ScopeConfiguration {
+@Configuration
+@Slf4j
+public class ScopeConfiguration {
 
-    @Bean @Scope("prototype") public Foo foo() {
+    @Bean
+    @Scope("prototype")
+    public Foo foo() {
         log.info("foo");
         return new Foo();
     }
 
-    @Bean public CustomScopeConfigurer customScopeConfigurer() {
+    @Bean
+    public CustomScopeConfigurer customScopeConfigurer() {
         CustomScopeConfigurer configurer = new CustomScopeConfigurer();
         configurer.addScope("doubleton", new DoubletonScope());
         return configurer;

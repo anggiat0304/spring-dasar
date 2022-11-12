@@ -16,22 +16,26 @@ import programmerjamannow.core.data.FooBar;
  * @author anggiat.pangaribuan (anggiat.pangaribuan@dana.id)
  * @version $Id: DependencyInjectionConfiguration.java, v 0.1 2022‐10‐28 20.34 anggiat.pangaribuan Exp $$
  */
-@Configuration public class DependencyInjectionConfiguration {
+@Configuration
+public class DependencyInjectionConfiguration {
     @Primary
-    @Bean public Foo fooFirst() {
+    @Bean
+    public Foo fooFirst() {
         return new Foo();
     }
 
-    @Bean public Foo fooSecond() {
+    @Bean
+    public Foo fooSecond() {
         return new Foo();
     }
 
-    @Bean public Bar bar() {
+    @Bean
+    public Bar bar() {
         return new Bar();
     }
 
     @Bean
-    public FooBar fooBar (@Qualifier("fooSecond")Foo foo , Bar bar){
-        return new FooBar(foo , bar);
+    public FooBar fooBar(@Qualifier("fooSecond") Foo foo, Bar bar) {
+        return new FooBar(foo, bar);
     }
 }

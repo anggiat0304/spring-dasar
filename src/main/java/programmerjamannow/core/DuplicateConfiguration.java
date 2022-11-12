@@ -13,14 +13,17 @@ import programmerjamannow.core.data.Foo;
  * @author anggiat.pangaribuan (anggiat.pangaribuan@dana.id)
  * @version $Id: DuplicateConfiguration.java, v 0.1 2022‐10‐27 13.33 anggiat.pangaribuan Exp $$
  */
-@Configuration public class DuplicateConfiguration {
+@Configuration
+public class DuplicateConfiguration {
     @Primary
-    @Bean public Foo foo1() {
+    @Bean
+    public Foo foo1() {
         Foo foo = new Foo();
         return foo;
     }
 
-    @Bean public Foo foo2() {
+    @Bean
+    public Foo foo2() {
         Foo foo = new Foo();
         return foo;
     }

@@ -13,12 +13,15 @@ import programmerjamannow.core.data.Foo;
  * @version $Id: BeanNameConfiguration.java, v 0.1 2022‐10‐28 16.47 anggiat.pangaribuan Exp $$
  */
 public class BeanNameConfiguration {
-    @Primary @Bean(name = "fooFirst") public Foo foo1() {
+    @Primary
+    @Bean(name = "fooFirst")
+    public Foo foo1() {
         Foo foo = new Foo();
         return foo;
     }
 
-    @Bean(name = "fooSecond") public Foo foo2() {
+    @Bean(name = "fooSecond")
+    public Foo foo2() {
         Foo foo = new Foo();
         return foo;
     }

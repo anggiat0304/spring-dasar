@@ -19,37 +19,42 @@ public class DoubletonScope implements Scope {
 
     private List<Object> objects = new ArrayList<Object>(2);
 
-    private Long counter =  -1L;
+    private Long counter = -1L;
 
-    @Override public Object get(String s, ObjectFactory<?> objectFactory) {
+    @Override
+    public Object get(String s, ObjectFactory<?> objectFactory) {
         counter++;
-        
-        if(objects.size() == 2){
-            int index = (int )(counter % 2);
+
+        if (objects.size() == 2) {
+            int index = (int) (counter % 2);
             return objects.get(index);
-        }else{
+        } else {
             Object object = objectFactory.getObject();
             objects.add(object);
             return object;
         }
     }
 
-    @Override public Object remove(String s) {
-        if (!objects.isEmpty()){
-           return objects.remove(0);
+    @Override
+    public Object remove(String s) {
+        if (!objects.isEmpty()) {
+            return objects.remove(0);
         }
         return null;
     }
 
-    @Override public void registerDestructionCallback(String s, Runnable runnable) {
+    @Override
+    public void registerDestructionCallback(String s, Runnable runnable) {
 
     }
 
-    @Override public Object resolveContextualObject(String s) {
+    @Override
+    public Object resolveContextualObject(String s) {
         return null;
     }
 
-    @Override public String getConversationId() {
+    @Override
+    public String getConversationId() {
         return null;
     }
 }
